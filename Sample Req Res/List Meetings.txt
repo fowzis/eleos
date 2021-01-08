@@ -1,0 +1,73 @@
+List Meetings
+
+curl --request GET \
+  --url 'https://api.zoom.us/v2/metrics/meetings?page_size=30&from=2020-01-01&type=live' \
+  --header 'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IkZySnh5TkFSU3VxbnpUeF92ekRaSmciLCJleHAiOjEwNDEzNzg4NDYwLCJpYXQiOjE1OTY3MDEzODV9.CeBXFRnHcgAmjqohODTSExJl7qa7msacZe0tlQ8BCfs'
+  
+{
+  "from": "2020-12-05",
+  "meetings": [
+    {
+      "duration": "",
+      "email": "link-test@eleos.health",
+      "end_time": "",
+      "has_3rd_party_audio": false,
+      "has_pstn": false,
+      "has_recording": false,
+      "has_screen_share": false,
+      "has_sip": false,
+      "has_video": false,
+      "has_voip": true,
+      "host": "link test",
+      "id": 99558552462,
+      "participants": 2,
+      "start_time": "2021-01-05T15:26:23Z",
+      "topic": "That's right",
+      "user_type": "Basic",
+      "uuid": "ShMqTNziQWy63i+eb/s0Nw=="
+    },
+    {
+      "duration": "",
+      "email": "link-test-2@eleos.health",
+      "end_time": "",
+      "has_3rd_party_audio": false,
+      "has_pstn": false,
+      "has_recording": false,
+      "has_screen_share": false,
+      "has_sip": false,
+      "has_video": false,
+      "has_voip": true,
+      "host": "link test",
+      "id": 99744704556,
+      "participants": 1,
+      "start_time": "2021-01-05T15:25:16Z",
+      "topic": "Yes lawd",
+      "user_type": "Basic",
+      "uuid": "JqR+hTN0SdmLuoLvYnfTHg=="
+    },
+    {
+      "duration": "",
+      "email": "link-test-4@eleos.health",
+      "end_time": "",
+      "has_3rd_party_audio": false,
+      "has_pstn": false,
+      "has_recording": false,
+      "has_screen_share": false,
+      "has_sip": false,
+      "has_video": false,
+      "has_voip": true,
+      "host": "link test",
+      "id": 91254170818,
+      "participants": 1,
+      "start_time": "2021-01-05T15:26:53Z",
+      "topic": "Groove Armada",
+      "user_type": "Basic",
+      "uuid": "Dz4SgE5uTryWwtVP0hxqYA=="
+    }
+  ],
+  "next_page_token": "",
+  "page_count": 1,
+  "page_size": 30,
+  "to": "2021-01-05",
+  "total_records": 3
+}

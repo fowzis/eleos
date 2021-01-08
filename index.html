@@ -1,0 +1,116 @@
+<!-- 
+	Add new users to the table, Invoke a post http command to the users route 
+	The document elements inside the form will be embedded automaticall into the http request object
+-->
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.min.css">
+    <title>Eleos Home Exercise</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="section columns">
+            <div class="column is-8 is-offset-2">
+                <h2 class="title has-text-centered" id="tblTitle"></h2>
+                  <table class="table is-bordered is-striped is-narrow">
+                    <thead>
+                        <tr>
+                            <th>Meetin ID</th>
+                            <th>Topic</th>
+                            <th>Participants</th>
+                            <th>End Meeting</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<script>
+
+function endMeeting(id) {
+    const url = 'http://localhost:9999/deleteMeeting/' + id;
+
+    // Fetch and handle returned Promises
+    fetch(url)
+    // Handle response promise, convert results to json object
+    .then((resp) => resp.json())
+    // Extract data from json object 
+    .then(function(data) {
+        window.location.reload(true);
+    })
+    .catch(function(error) {
+        console.log(error);
+    });
+}
+
+function addRowCell(rowCell, data) {
+    // <td></td>
+    let cell = rowCell.insertCell();
+    let text = document.createTextNode(data);
+    cell.appendChild(text);
+}
+
+function addEndMeetingButton(rowCell, caption, meetingId) {
+    let cell = rowCell.insertCell();
+    var btn = document.createElement('input');
+    btn.type = "button";
+    btn.className = "btn";
+    btn.value = caption;
+    //btn.onclick = endMeeting(meetingId);
+    btn.onclick = (function() {
+        return endMeeting(meetingId.toString());
+    });
+
+    cell.appendChild(btn);
+}
+
+function generateTable(tbody, meeting) {
+    // <tr></tr>
+    let row = tbody.insertRow();
+    // Add the data to the table columns
+    addRowCell(row, meeting.id);
+    addRowCell(row, meeting.topic);
+    addRowCell(row, meeting.participants);
+    addEndMeetingButton(row, "End Meeting", meeting.id);
+}
+
+//const ul = document.getElementById('zoomMeetingsList');
+const url = 'http://localhost:9999/';
+
+// Fetch and handle returned Promises
+fetch(url)
+// Handle response promise, convert results to json object
+.then((resp) => resp.json())
+// Extract data from json object 
+.then(function(data) {
+    let zoomTotalRec = data.total_records;
+    var mainContainer = document.getElementById("tblTitle");
+    var div = document.createElement("div");
+    div.innerHTML = 'total_records: ' + zoomTotalRec;
+    mainContainer.appendChild(div);
+
+    // Crerate table body
+    let zoomMeetingsList = data.meetings;
+    let tbody = document.querySelector("tbody");
+
+    return zoomMeetingsList.map(function(meeting) {
+        generateTable(tbody, meeting)
+    })
+})
+.catch(function(error) {
+    console.log(error);
+});
+</script>
+	
+</body>
+
+</html>
