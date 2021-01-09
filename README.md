@@ -20,15 +20,19 @@ An exercise in invoking Zoom APIs
 
 git clode repository <https://github.com/fowzis/eleos.git>
 
-### Node.js
+### Installing Node.js
 
 Download and install Node.js
+
 Test your installation by running the following from the commandline
+
 **`node -v && npm -v`**
 
 ### Installing Node.js used modules
 
-npm install body-parser express mysql request
+Run the following command from to install Node.js used modules.
+
+**`npm install body-parser express mysql request`**
 
 ### MySql
 
@@ -43,11 +47,11 @@ Use the CreateSchema.sql file, found in the cloned repository to create the data
 
 Define the following Environment Variables
 
-- ELEOS_AUTH_KEY = `<Zoom API Auth Key>`
-- ELEOS_DB_HOST = `<Host Name / IP>  ex.: localhost`
-- ELEOS_DB_USER = `<DB User>         ex.: root`
-- ELEOS_DB_PASS = `<DB Pass>         ex.: root`
-- ELEOS_DB_NAME = `<DB Name>         ex.: eleos_db`
+- **`ELEOS_AUTH_KEY = <Zoom API Auth Key>`**
+- **`ELEOS_DB_HOST = <Host Name / IP>  ex.: localhost`**
+- **`ELEOS_DB_USER = <DB User>         ex.: root`**
+- **`ELEOS_DB_PASS = <DB Pass>         ex.: root`**
+- **`ELEOS_DB_NAME = <DB Name>         ex.: eleos_db`**
 
 ## Running The Application
 
