@@ -45,7 +45,8 @@ function endMeeting(id) {
     .then((resp) => resp.json())
     // Extract data from json object 
     .then(function(data) {
-        window.location.reload(true);
+        document.getElementById(id).disabled = true;
+        setTimeout(function () {location.reload(true); }, 1000);
     })
     .catch(function(error) {
         console.log(error);
@@ -65,9 +66,10 @@ function addEndMeetingButton(rowCell, caption, meetingId) {
     btn.type = "button";
     btn.className = "btn";
     btn.value = caption;
+    btn.id = meetingId;
     //btn.onclick = endMeeting(meetingId);
     btn.onclick = (function() {
-        return endMeeting(meetingId.toString());
+        return endMeeting(meetingId);
     });
 
     cell.appendChild(btn);
