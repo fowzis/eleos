@@ -56,9 +56,11 @@ Define the following Environment Variables
 ## Running The Application
 
 Once all is installed and the DB Schema is created, run the application from the application folder as follows:
+
 **`npm start`**
 
-The following message should indicate that the express http server is listening on the specified port
+The following message should indicate that the express http server is listening on the specified port:
+
 **`Server listening on port 9999`**
 
 ## Invoking the main page
