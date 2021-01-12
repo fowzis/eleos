@@ -2,7 +2,6 @@
 // Load the MySQL dbConPool connection
 const dbConPool = require("./DAL/dbConfig");
 const sqlQueries = require("./DAL/queries");
-const secret = require("./secret");
 const httpRequest = require("request");
 
 const router = app => {
