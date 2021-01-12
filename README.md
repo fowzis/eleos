@@ -1,4 +1,5 @@
 # Jennifer's online clinic
+
 An exercise in invoking Zoom APIs
 
 ## Software Stack
@@ -41,7 +42,7 @@ Alternativly If you don't have MySQL installed, you can download **MAMP** for Wi
 
 ### Create the DB Schema
 
-Use the CreateSchema.sql file, found in the cloned repository to create the database and the related tables. 
+Use the CreateSchema.sql file, found in the cloned repository to create the database and the related tables.
 
 ### Define Environment Variables
 
